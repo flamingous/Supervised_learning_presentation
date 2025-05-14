@@ -37,7 +37,7 @@ with st.form(key='prediction_form'):
     
     with col1:
         country = st.selectbox("Country", countries)
-        year = st.slider("Year", min_value=2018, max_value=2024, value=2024)
+        year = st.slider("Year", min_value=2018, max_value=2030, value=2024)
         sustainability_rating = st.selectbox("Sustainability Rating", sustainability_ratings)
         material_type = st.selectbox("Material Type", materials)
         carbon_footprint = st.number_input("Carbon Footprint (Metric Tons)", min_value=0.0, value=10.0, step=0.1)
