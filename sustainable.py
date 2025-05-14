@@ -3,8 +3,7 @@ import pandas as pd
 import numpy as np
 from sklearn.preprocessing import LabelEncoder
 import joblib
-import matplotlib.pyplot as plt
-import seaborn as sns
+
 
 # Set page configuration
 st.set_page_config(page_title="Sustainable Fashion Predictor", layout="wide")
@@ -82,19 +81,7 @@ def make_predictions(model, input_data, target_name):
     probability = model.predict_proba(input_data)[0]
     return prediction[0], probability
 
-# Feature importance visualization
-def plot_feature_importance(model, feature_names, target_name):
-    importance = pd.DataFrame({
-        'Feature': feature_names,
-        'Importance': model.feature_importances_
-    }).sort_values('Importance', ascending=False)
-    
-    fig, ax = plt.subplots(figsize=(8, 6))
-    sns.barplot(x='Importance', y='Feature', data=importance, palette='viridis')
-    plt.title(f'Feature Importance for {target_name} Prediction')
-    st.pyplot(fig)
-    
-    return importance
+
 
 # Process form submission
 if submit_button:
@@ -147,17 +134,7 @@ if submit_button:
             st.write(f"Probability (Yes): {eco_prob[1]:.2%}")
             st.write(f"Probability (No): {eco_prob[0]:.2%}")
         
-        # Plot feature importance
-        st.subheader("Feature Importance")
-        col1, col2 = st.columns(2)
-        
-        with col1:
-            st.write("**Recycling Programs**")
-            recycling_importance = plot_feature_importance(rf_recycling, feature_columns, "Recycling Programs")
-        
-        with col2:
-            st.write("**Eco-Friendly Manufacturing**")
-            eco_importance = plot_feature_importance(rf_eco, feature_columns, "Eco-Friendly Manufacturing")
+    
         
     except Exception as e:
         st.error(f"Error processing input: {str(e)}. Please ensure all inputs are valid.")
