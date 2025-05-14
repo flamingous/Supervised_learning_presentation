@@ -125,14 +125,12 @@ if submit_button:
         with col1:
             st.write("**Recycling Programs**")
             st.write(f"Prediction: {'Yes' if recycling_pred == 1 else 'No'}")
-            st.write(f"Probability (Yes): {recycling_prob[1]:.2%}")
-            st.write(f"Probability (No): {recycling_prob[0]:.2%}")
+           
         
         with col2:
             st.write("**Eco-Friendly Manufacturing**")
             st.write(f"Prediction: {'Yes' if eco_pred == 1 else 'No'}")
-            st.write(f"Probability (Yes): {eco_prob[1]:.2%}")
-            st.write(f"Probability (No): {eco_prob[0]:.2%}")
+          
         
     
         
