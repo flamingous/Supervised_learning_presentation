@@ -14,6 +14,8 @@ This app predicts whether a fashion brand has **Recycling Programs** or uses **E
 based on brand details. Enter the information below and click 'Predict' to see the results.
 """)
 
+
+
 # Load dataset to get valid categories for dropdowns
 @st.cache_data
 def load_data():
@@ -136,3 +138,14 @@ if submit_button:
     except Exception as e:
         st.error(f"Error processing input: {str(e)}. Please ensure all inputs are valid.")
 
+# Add an about section and contact details
+st.title("About")
+st.info("""
+This app is designed to help predict whether a fashion brand adopts sustainable practices such as 
+**Recycling Programs** or **Eco-Friendly Manufacturing**. It uses machine learning models trained on 
+industry data to provide insights based on the brand's details.
+
+For inquiries or feedback, please contact:
+- **Email**: john.faboyo@gmail.com
+- **Website**: www.i-n.official.com
+""")
